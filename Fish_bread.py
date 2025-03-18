@@ -1,12 +1,22 @@
+#붕어빵 재고
 stock = {
     "팥붕어빵":10,
     "슈크림붕어빵":9,
     "초코붕어빵":6
 }
+
+#붕어빵 판매량
 sales = {
     "팥붕어빵":0,
     "슈크림붕어빵":0,
     "초코붕어빵":0
+}
+
+#붕어빵 메뉴판
+price = {
+    "팥붕어빵" : 1000, 
+    "슈크림붕어빵": 1200,
+    "초코붕어빵" : 1500
 }
 
 #주문 기능
@@ -40,6 +50,12 @@ def admin_mode():
         else:
             print("올바른 메뉴를 입력해주세요")
 
+#계산 기능
+def calculate_sales():
+    total_sales = 0
+    for key in sales: # 팥붕어빵
+        total_sales += (price[key] * sales[key])
+    print(f'오늘의 총 매출은 {total_sales}원 입니다.')
 
 #메인 기능 선택
 while True:
@@ -52,4 +68,5 @@ while True:
     elif mode == "관리자":
         admin_mode()
 
-    
+#매출 출력
+calculate_sales()
